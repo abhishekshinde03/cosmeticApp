@@ -1,0 +1,42 @@
+﻿@model IEnumerable<cosmeticApp.Models.analysis>
+
+@{
+    ViewData["Title"] = "customeranaylsis";
+}
+@{Layout = "~/Views/Shared/_Layout1.cshtml";}
+
+<h1>customeranaylsis</h1>
+
+<p>
+    <a asp-action="Create">Add new</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.customername)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.total)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.customername)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.total)
+                </td>
+                <td>
+                    <a asp-action="OrderDetails" asp-route-id="@item.Id">Details</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,78 @@
+﻿@model cosmeticApp.Models.product
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+<hr />
+<dl class="row">
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.productId)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.productId)
+    </dd>
+
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.productName)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.productName)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.description)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.description)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.productquantity)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.productquantity)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.price)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.price)
+    </dd>
+
+    <dt>
+        Pic
+    </dt>
+    <dd>
+        <img src="~/images/@Model.productfile" height="150" />
+        <br />@Model.productfile
+
+    </dd>
+</dl>
+
+<h4>orders</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" name="productId" value=@Model.productId />
+
+
+            <div class="form-group">
+                <label class="control-label"></label>
+                <input name="noofproduct" class="form-control" />
+
+            </div>
+            <a asp-controller="products" asp-action="store">Back to Store</a>
+
+            <div class="form-group">
+                <input type="submit" value="Buy" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

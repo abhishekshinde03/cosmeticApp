@@ -1,0 +1,66 @@
+﻿@model cosmeticApp.Models.product
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>product</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="productId" />
+            <div class="form-group">
+                <label asp-for="productName" class="control-label"></label>
+                <input asp-for="productName" class="form-control" />
+                <span asp-validation-for="productName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="description" class="control-label"></label>
+                <input asp-for="description" class="form-control" />
+                <span asp-validation-for="description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="productquantity" class="control-label"></label>
+                <input asp-for="productquantity" class="form-control" />
+                <span asp-validation-for="productquantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="price" class="control-label"></label>
+                <input asp-for="price" class="form-control" />
+                <span asp-validation-for="price" class="text-danger"></span>
+            </div>
+            <img src="~/images/@Model.productfile" height="150" />
+
+            <input type="hidden" asp-for="productfile" />
+
+            <div class="form-group">
+                <label class="control-label">Pic</label>
+                <input type="file" class="form-control" name="file" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Catagory</label>
+                <select name="exhibitId" class="form-control" asp-for="exhibitId">
+
+                    <option value="1">Skin care</option>
+                    <option value="2">Hair care</option>
+                    <option value="3">Personal care</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
